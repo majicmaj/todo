@@ -6,7 +6,7 @@ import {
 import { format, parseISO } from 'date-fns'
 import { ArrowLeft, Clock, Trash, User } from 'lucide-react'
 import { Link, useNavigate, useParams } from 'react-router'
-import PageWrapper from '@/components/system/pageWrapper'
+import PageWrapper from '@/components/system/pageWrappers'
 import PriorityIcon from '@/components/todo/priorityIcon'
 import Deadline from '@/components/todo/deadline'
 

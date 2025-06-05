@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Plus } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router'
-import PageWrapper from '@/components/system/pageWrapper'
+import PageWrapper from '@/components/system/pageWrappers'
 
 const Home = () => {
   const [search, setSearch] = useState('')

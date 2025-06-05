@@ -4,7 +4,7 @@ import Todo from '@/types/todo'
 import { Plus, X } from 'lucide-react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
-import PageWrapper from '@/components/system/pageWrapper'
+import PageWrapper from '@/components/system/pageWrappers'
 
 const Create = () => {
   const [todo, setTodo] = useState<Todo>(NEW_TODO_FORM_DEFAULT)
