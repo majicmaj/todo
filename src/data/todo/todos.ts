@@ -30,9 +30,25 @@ export const useGetTodo = (id: string) => {
     queryKey: [TODOS_LOCAL_STORAGE_KEY, id],
     queryFn: () => {
       const todos = localStorage.getItem(TODOS_LOCAL_STORAGE_KEY)
-      if (!todos) return null
-      const parsedTodos = JSON.parse(todos)
-      return parsedTodos.find((todo: { id: string }) => todo.id === id) || null
+      const completeTodos = localStorage.getItem(
+        COMPLETE_TODOS_LOCAL_STORAGE_KEY,
+      )
+      if (!todos && !completeTodos) return null
+      if (completeTodos) {
+        const parsedCompleteTodos = JSON.parse(completeTodos)
+        const foundTodo = parsedCompleteTodos.find(
+          (todo: { id: string }) => todo.id === id,
+        )
+        if (foundTodo) return foundTodo
+      }
+      if (todos) {
+        const parsedTodos = JSON.parse(todos)
+        const foundTodo = parsedTodos.find(
+          (todo: { id: string }) => todo.id === id,
+        )
+        if (foundTodo) return foundTodo
+      }
+      return null
     },
   })
 }
@@ -146,6 +162,58 @@ export const useUncompleteTodo = () => {
       queryClient.invalidateQueries({
         queryKey: [TODOS_LOCAL_STORAGE_KEY],
       })
+      queryClient.invalidateQueries({
+        queryKey: [COMPLETE_TODOS_LOCAL_STORAGE_KEY],
+      })
+    },
+  })
+}
+
+const deleteTodo = async (id: string) => {
+  const todos = localStorage.getItem(TODOS_LOCAL_STORAGE_KEY)
+  const parsedTodos = todos ? JSON.parse(todos) : []
+  const todoIndex = parsedTodos.findIndex(
+    (todo: { id: string }) => todo.id === id,
+  )
+
+  if (todoIndex === -1) throw new Error('Todo not found')
+
+  parsedTodos.splice(todoIndex, 1)
+  localStorage.setItem(TODOS_LOCAL_STORAGE_KEY, JSON.stringify(parsedTodos))
+}
+const deleteCompletedTodo = async (id: string) => {
+  const completedTodos = localStorage.getItem(COMPLETE_TODOS_LOCAL_STORAGE_KEY)
+  const parsedCompletedTodos = completedTodos ? JSON.parse(completedTodos) : []
+  const todoIndex = parsedCompletedTodos.findIndex(
+    (todo: { id: string }) => todo.id === id,
+  )
+
+  if (todoIndex === -1) throw new Error('Todo not found')
+
+  parsedCompletedTodos.splice(todoIndex, 1)
+  localStorage.setItem(
+    COMPLETE_TODOS_LOCAL_STORAGE_KEY,
+    JSON.stringify(parsedCompletedTodos),
+  )
+}
+
+export const useDeleteTodo = () => {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: deleteTodo,
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [TODOS_LOCAL_STORAGE_KEY],
+      })
+    },
+  })
+}
+
+export const useDeleteCompletedTodo = () => {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: deleteCompletedTodo,
+    onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: [COMPLETE_TODOS_LOCAL_STORAGE_KEY],
       })

@@ -1,6 +1,7 @@
 import App from '@/App'
 import Create from '@/components/views/create/create'
 import Home from '@/components/views/home/home'
+import SingleTodo from '@/components/views/todo/singleTodo'
 
 import { createBrowserRouter, RouterProvider as Provider } from 'react-router'
 
@@ -16,6 +17,10 @@ const routes = [
       {
         path: '/create',
         element: <Create />,
+      },
+      {
+        path: '/todo/:id',
+        element: <SingleTodo />,
       },
     ],
   },

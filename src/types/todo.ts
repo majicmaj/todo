@@ -1,10 +1,12 @@
+export type Priority = 'low' | 'medium' | 'high'
+
 interface Todo {
   id: string
   title: string
   description?: string
   dueDate?: string
   dueTime?: string
-  priority?: 'low' | 'medium' | 'high'
+  priority?: Priority
   tags?: string[]
   assignedTo?: string
   createdAt: string
