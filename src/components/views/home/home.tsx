@@ -15,9 +15,9 @@ const Home = () => {
 
   return (
     <PageWrapper>
-      <div className="flex flex-col">
-        <Link to="/create">
-          <button className="btn btn-primary btn-xl fixed right-6 bottom-6 aspect-square w-max rounded-xl p-1 text-2xl">
+      <div className="flex h-full flex-col overflow-auto">
+        <Link to="/create" className="fixed right-6 bottom-6 z-20">
+          <button className="btn btn-primary btn-xl aspect-square w-max rounded-xl p-1 text-2xl">
             <Plus />
           </button>
         </Link>
@@ -31,8 +31,8 @@ const Home = () => {
           />
         </div>
 
-        <div className="bg-base-100 h-full rounded-t-4xl p-6 pt-2">
-          <motion.div layout className="flex flex-col gap-4">
+        <div className="bg-base-100 h-full min-h-max rounded-t-4xl p-6 pt-2 pb-24">
+          <div className="flex flex-col gap-4">
             <div className="bg-base-100 border-base-300 sticky top-0 z-10 items-start justify-between border-b py-4">
               <h1 className="text-4xl font-bold">Todos</h1>
               <p className="text-base-content/60 text-xl font-semibold">
@@ -44,17 +44,16 @@ const Home = () => {
               {todos?.map((todo: Todo) => (
                 <TodoItem key={todo.id} todo={todo} />
               ))}
+
               <motion.div layout className="divider">
                 Completed
               </motion.div>
-            </AnimatePresence>
 
-            <AnimatePresence>
               {completedTodos?.map((todo: Todo) => (
                 <TodoItem key={todo.id} todo={todo} isComplete />
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
         </div>
       </div>
     </PageWrapper>

@@ -34,9 +34,9 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
       animate="animate"
       exit="exit"
       transition={pageTransition}
-      className="grid h-full w-full overflow-hidden"
+      className="bg-base-300 flex h-full w-full flex-col overflow-hidden"
     >
-      <div className="min-h-0 w-full overflow-y-auto">{children}</div>
+      {children}
     </motion.div>
   )
 }
