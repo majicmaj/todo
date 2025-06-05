@@ -34,7 +34,7 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
       animate="animate"
       exit="exit"
       transition={pageTransition}
-      className="h-full w-full"
+      className="grid h-full w-full"
     >
       {children}
     </motion.div>
