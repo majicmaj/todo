@@ -1,6 +1,6 @@
 import { useCompleteTodo, useUncompleteTodo } from '@/data/todo/todos'
 import { cn } from '@/lib/utils'
-import Todo from '@/types/todo'
+import Todo from '@/types/todo.ts'
 
 const TodoItem = ({
   todo,

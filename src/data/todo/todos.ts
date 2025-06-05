@@ -1,4 +1,4 @@
-import Todo from '@/types/todo'
+import Todo from '@/types/todo.ts'
 import { v4 as uuidv4 } from 'uuid'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
