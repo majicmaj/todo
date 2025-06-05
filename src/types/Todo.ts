@@ -1,4 +1,4 @@
-export interface Todo {
+interface Todo {
   id: string
   title: string
   description?: string
@@ -11,3 +11,5 @@ export interface Todo {
   updatedAt: string
   completed: boolean
 }
+
+export type { Todo }
