@@ -1,11 +1,11 @@
 import { HiddenModeToggle } from './components/system/modeToggle'
-import { Outlet } from 'react-router'
+import AnimatedOutlet from './components/system/AnimatedOutlet'
 
 function App() {
   return (
-    <div className={'bg-base-300 grid h-screen w-screen overflow-auto'}>
+    <div className={'bg-base-300 grid h-screen w-screen overflow-hidden'}>
       <HiddenModeToggle />
-      <Outlet />
+      <AnimatedOutlet />
     </div>
   )
 }
