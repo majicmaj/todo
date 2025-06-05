@@ -1,17 +1,30 @@
-import App from "@/App";
-import { createBrowserRouter, RouterProvider as Provider } from "react-router";
+import App from '@/app'
+import Create from '@/components/views/create/create'
+import Home from '@/components/views/home/home'
+
+import { createBrowserRouter, RouterProvider as Provider } from 'react-router'
 
 const routes = [
   {
-    path: "/",
+    path: '/',
     element: <App />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/create',
+        element: <Create />,
+      },
+    ],
   },
-];
+]
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes)
 
 const RouterProvider = () => {
-  return <Provider router={router} />;
-};
+  return <Provider router={router} />
+}
 
-export { RouterProvider };
+export { RouterProvider }
