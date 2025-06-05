@@ -1,4 +1,4 @@
-import App from '@/app'
+import App from '@/App'
 import Create from '@/components/views/create/create'
 import Home from '@/components/views/home/home'
 
