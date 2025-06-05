@@ -1,5 +1,5 @@
 import { HiddenModeToggle } from './components/system/modeToggle'
-import AnimatedOutlet from './components/system/animatedOutlet'
+import AnimatedOutlet from './components/system/animatedOutlets'
 
 function App() {
   return (
