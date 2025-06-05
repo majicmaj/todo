@@ -1,6 +1,6 @@
 import { NEW_TODO_FORM_DEFAULT } from '@/constants/newTodoFormDefault'
 import { usePostTodo } from '@/data/todo/todos'
-import { Todo } from '@/types/todo.ts'
+import { type Todo } from '@/types/todo'
 import { Plus, X } from 'lucide-react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'

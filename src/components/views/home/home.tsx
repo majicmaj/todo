@@ -1,8 +1,8 @@
 import TodoItem from '@/components/todo/todoItem'
 
 import { useGetCompletedTodos, useGetTodos } from '@/data/todo/todos'
-import { Todo } from '@/types/todo.ts'
-import { Plus } from 'lucide-react'
+
+import { type Todo } from '@/types/todo'import { Plus } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router'
 
