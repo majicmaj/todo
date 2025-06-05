@@ -30,7 +30,12 @@ const TodoItem = ({
       transition={{ duration: 0.2 }}
       className="flex items-center gap-4"
     >
-      <input
+      <motion.input
+        layout
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.2 }}
         type="checkbox"
         className="checkbox checkbox-accent"
         checked={todo.completed}
