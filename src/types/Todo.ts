@@ -13,3 +13,5 @@ interface Todo {
 }
 
 export type { Todo }
+
+export default Todo
