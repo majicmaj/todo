@@ -74,7 +74,7 @@ const SingleTodo = () => {
 
             {todo.tags && todo.tags.length > 0 && (
               <div className="flex flex-wrap gap-2">
-                {todo.tags.map((tag) => (
+                {todo.tags.map((tag: string) => (
                   <span key={tag} className="badge badge-lg">
                     {tag}
                   </span>
