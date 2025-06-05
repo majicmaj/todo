@@ -34,7 +34,7 @@ const Home = () => {
           <div className="bg-base-100 border-base-300 sticky top-0 items-start justify-between border-b py-4">
             <h1 className="text-4xl font-bold">Todos</h1>
             <p className="text-base-content/60 text-xl font-semibold">
-              {todos?.length} Todos
+              {todos?.length} Items
             </p>
           </div>
 
