@@ -1,6 +1,7 @@
 import { useCompleteTodo, useUncompleteTodo } from '@/data/todo/todos'
 import { cn } from '@/lib/utils'
 import Todo from '@/types/todo'
+import { motion } from 'framer-motion'
 
 const TodoItem = ({
   todo,
@@ -21,7 +22,14 @@ const TodoItem = ({
   }
 
   return (
-    <div className="flex items-center gap-4">
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.2 }}
+      className="flex items-center gap-4"
+    >
       <input
         type="checkbox"
         className="checkbox checkbox-accent"
@@ -29,18 +37,24 @@ const TodoItem = ({
         onChange={handleToggle}
       />
 
-      <div
+      <motion.div
+        layout
         className={cn(
           'grid',
           isComplete && 'text-base-content/60 line-through',
         )}
       >
-        <h2 className="text-2xl font-semibold">{todo.title}</h2>
-        <p className="text-base-content/60 truncate font-semibold">
+        <motion.h2 layout className="text-2xl font-semibold">
+          {todo.title}
+        </motion.h2>
+        <motion.p
+          layout
+          className="text-base-content/60 truncate font-semibold"
+        >
           {todo.description}
-        </p>
-      </div>
-    </div>
+        </motion.p>
+      </motion.div>
+    </motion.div>
   )
 }
 
