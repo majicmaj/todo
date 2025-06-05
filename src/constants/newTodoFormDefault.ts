@@ -1,4 +1,5 @@
-import { type Todo } from '@/types/todo'
+import { Todo } from '@/types/todo'
+
 export const NEW_TODO_FORM_DEFAULT: Todo = {
   id: '',
   title: '',
