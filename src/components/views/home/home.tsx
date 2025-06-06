@@ -114,13 +114,14 @@ const Home = () => {
             </div>
           </motion.div>
 
-          <motion.button
+          <button
             className="btn btn-ghost rounded-xl"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            animate={{ rotate: isMenuOpen ? 180 : 0 }}
           >
-            <ChevronDown className="h-6 w-6" />
-          </motion.button>
+            <motion.span animate={{ rotate: isMenuOpen ? 180 : 0 }}>
+              <ChevronDown className="h-6 w-6" />
+            </motion.span>
+          </button>
         </div>
 
         <div className="bg-base-100 h-full min-h-max rounded-t-4xl p-6 pt-2 pb-24">
