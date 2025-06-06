@@ -222,7 +222,6 @@ export const useDeleteCompletedTodo = () => {
 }
 
 const updateTodo = async (todo: Partial<Todo>) => {
-  console.log('Updating todo:', todo)
   const todos = localStorage.getItem(TODOS_LOCAL_STORAGE_KEY)
   const parsedTodos = todos ? JSON.parse(todos) : []
   const todoIndex = parsedTodos.findIndex(

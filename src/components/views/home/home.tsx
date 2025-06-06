@@ -57,11 +57,6 @@ const Home = () => {
           const aDue = getDueFromDateTime(aDate, aTime)
           const bDue = getDueFromDateTime(bDate, bTime)
 
-          console.log({
-            aDue,
-            bDue,
-          })
-
           return bDue.getTime() - aDue.getTime()
         })
 
