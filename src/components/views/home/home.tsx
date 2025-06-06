@@ -2,7 +2,7 @@ import TodoItem from '@/components/todo/todoItem'
 import { useGetCompletedTodos, useGetTodos } from '@/data/todo/todos'
 import Todo from '@/types/todo'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Plus } from 'lucide-react'
+import { ChevronDown, Plus } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router'
 import PageWrapper from '@/components/system/pageWrappers'
@@ -26,6 +26,7 @@ const getDueFromDateTime = (date?: string, time?: string) => {
 const Home = () => {
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState<SortOption['value']>('none')
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const { data: todos } = useGetTodos(search)
   const { data: completedTodos } = useGetCompletedTodos(search)
@@ -81,27 +82,45 @@ const Home = () => {
           </button>
         </Link>
 
-        <div className="flex flex-col gap-4 p-4">
-          <input
-            placeholder="Search Todos"
-            className="input input-lg input-accent w-full rounded-2xl"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <div className="flex items-center gap-2">
-            <select
-              className="select select-lg select-accent rounded-2xl"
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as SortOption['value'])}
-            >
-              {sortOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            <ModeToggle />
-          </div>
+        <div className="flex flex-col gap-4 p-2">
+          <motion.div
+            initial={false}
+            animate={{ height: isMenuOpen ? 'auto' : 0 }}
+            className="overflow-hidden"
+          >
+            <div className="flex flex-col gap-4 py-2">
+              <input
+                placeholder="Search Todos"
+                className="input input-lg input-accent w-full rounded-2xl"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <div className="flex items-center gap-2">
+                <select
+                  className="select select-lg select-accent rounded-2xl"
+                  value={sortBy}
+                  onChange={(e) =>
+                    setSortBy(e.target.value as SortOption['value'])
+                  }
+                >
+                  {sortOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+                <ModeToggle />
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.button
+            className="btn btn-ghost rounded-xl"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            animate={{ rotate: isMenuOpen ? 180 : 0 }}
+          >
+            <ChevronDown className="h-6 w-6" />
+          </motion.button>
         </div>
 
         <div className="bg-base-100 h-full min-h-max rounded-t-4xl p-6 pt-2 pb-24">
