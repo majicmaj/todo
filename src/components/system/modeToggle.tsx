@@ -1,7 +1,7 @@
 import { useTheme } from '@/hooks/useTheme'
 
 const VALUES_MAP = {
-  light: 'pastel',
+  light: 'light',
   dark: 'dark',
 }
 

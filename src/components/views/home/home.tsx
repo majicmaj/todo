@@ -73,6 +73,9 @@ const Home = () => {
                   layout
                   key="no-completed-todos"
                   className="text-base-content/60 text-center text-xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
                 >
                   None yet!
                 </motion.div>
