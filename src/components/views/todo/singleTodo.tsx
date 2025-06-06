@@ -4,7 +4,7 @@ import {
   useGetTodo,
 } from '@/data/todo/todos'
 import { format, parseISO } from 'date-fns'
-import { ArrowLeft, Clock, Trash, User } from 'lucide-react'
+import { ArrowLeft, Clock, Pen, Trash, User } from 'lucide-react'
 import { Link, useNavigate, useParams } from 'react-router'
 import PageWrapper from '@/components/system/pageWrappers'
 import PriorityIcon from '@/components/todo/priorityIcon'
@@ -87,10 +87,12 @@ const SingleTodo = () => {
               <p>Updated: {format(parseISO(todo.updatedAt), 'PPp')}</p>
             </div>
 
-            <button
-              className="btn btn-error btn-outline mt-4"
-              onClick={handleDelete}
-            >
+            <Link to={`/edit/${todo.id}`} className="btn btn-primary">
+              <Pen />
+              Edit
+            </Link>
+
+            <button className="btn btn-error" onClick={handleDelete}>
               <Trash />
               Delete
             </button>

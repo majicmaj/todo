@@ -6,6 +6,7 @@ import { Plus } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router'
 import PageWrapper from '@/components/system/pageWrappers'
+import ModeToggle from '@/components/system/modeToggle'
 
 const Home = () => {
   const [search, setSearch] = useState('')
@@ -22,13 +23,14 @@ const Home = () => {
           </button>
         </Link>
 
-        <div className="p-4">
+        <div className="flex items-center gap-1 p-4">
           <input
             placeholder="Search Todos"
             className="input input-lg input-accent w-full rounded-2xl"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+          <ModeToggle />
         </div>
 
         <div className="bg-base-100 h-full min-h-max rounded-t-4xl p-6 pt-2 pb-24">

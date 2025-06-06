@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils'
 interface DeadLineProps {
   date?: string
   time?: string
+  isComplete?: boolean
 }
 
 const getDeadlineInfo = (date?: string, time?: string) => {
@@ -48,10 +49,10 @@ const getDeadlineInfo = (date?: string, time?: string) => {
   }
 }
 
-const Deadline = ({ date, time }: DeadLineProps) => {
+const Deadline = ({ date, time, isComplete }: DeadLineProps) => {
   const deadlineInfo = getDeadlineInfo(date, time)
 
-  if (!deadlineInfo) return null
+  if (!deadlineInfo || isComplete) return null
 
   const variantStyles = {
     error: 'badge-error',

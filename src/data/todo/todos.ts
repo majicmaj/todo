@@ -220,3 +220,50 @@ export const useDeleteCompletedTodo = () => {
     },
   })
 }
+
+const updateTodo = async (todo: Partial<Todo>) => {
+  console.log('Updating todo:', todo)
+  const todos = localStorage.getItem(TODOS_LOCAL_STORAGE_KEY)
+  const parsedTodos = todos ? JSON.parse(todos) : []
+  const todoIndex = parsedTodos.findIndex(
+    (t: { id: string }) => t.id === todo.id,
+  )
+
+  const completedTodos = localStorage.getItem(COMPLETE_TODOS_LOCAL_STORAGE_KEY)
+  const parsedCompletedTodos = completedTodos ? JSON.parse(completedTodos) : []
+  const completedTodoIndex = parsedCompletedTodos.findIndex(
+    (t: { id: string }) => t.id === todo.id,
+  )
+
+  const notInTodos = todoIndex === -1
+  const notInCompletedTodos = completedTodoIndex === -1
+  if (notInTodos && notInCompletedTodos) throw new Error('Todo not found')
+
+  if (notInTodos) {
+    parsedCompletedTodos[completedTodoIndex] = {
+      ...parsedCompletedTodos[completedTodoIndex],
+      ...todo,
+    }
+    localStorage.setItem(
+      COMPLETE_TODOS_LOCAL_STORAGE_KEY,
+      JSON.stringify(parsedCompletedTodos),
+    )
+    return parsedCompletedTodos[completedTodoIndex]
+  }
+
+  parsedTodos[todoIndex] = { ...parsedTodos[todoIndex], ...todo }
+  localStorage.setItem(TODOS_LOCAL_STORAGE_KEY, JSON.stringify(parsedTodos))
+  return parsedTodos[todoIndex]
+}
+
+export const useUpdateTodo = () => {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: updateTodo,
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [TODOS_LOCAL_STORAGE_KEY],
+      })
+    },
+  })
+}

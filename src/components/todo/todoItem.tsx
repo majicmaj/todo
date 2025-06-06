@@ -63,7 +63,11 @@ const TodoItem = ({
             </motion.h2>
           </Link>
           <motion.div layout className="flex-shrink-0">
-            <Deadline date={todo.dueDate} time={todo.dueTime} />
+            <Deadline
+              date={todo.dueDate}
+              time={todo.dueTime}
+              isComplete={isComplete}
+            />
           </motion.div>
         </motion.div>
 

@@ -1,5 +1,6 @@
 import App from '@/App'
 import Create from '@/components/views/create/create'
+import Edit from '@/components/views/edit/edit'
 import Home from '@/components/views/home/home'
 import SingleTodo from '@/components/views/todo/singleTodo'
 
@@ -17,6 +18,10 @@ const routes = [
       {
         path: '/create',
         element: <Create />,
+      },
+      {
+        path: '/edit/:id',
+        element: <Edit />, // Reusing Create component for editing
       },
       {
         path: '/todo/:id',
