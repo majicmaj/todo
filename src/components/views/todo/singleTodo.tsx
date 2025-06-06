@@ -43,14 +43,14 @@ const SingleTodo = () => {
         </div>
 
         <div className="bg-base-100 flex h-full flex-col gap-6 rounded-t-3xl p-6">
-          <div className="flex items-start gap-2">
+          <div className="flex items-center gap-2">
             <PriorityIcon priority={todo.priority} />
             <h1 className="flex-1 text-3xl font-bold">{todo.title}</h1>
           </div>
 
-          {todo.description && (
-            <p className="text-base-content/70 text-lg">{todo.description}</p>
-          )}
+          <p className="text-base-content/70 text-lg">
+            {todo.description || 'No description'}
+          </p>
 
           <div className="divider">Details</div>
 
@@ -72,13 +72,16 @@ const SingleTodo = () => {
               </div>
             )}
 
-            {todo.tags && todo.tags.length > 0 && (
+            {todo.tags && (
               <div className="flex flex-wrap gap-2">
                 {todo.tags.map((tag: string) => (
-                  <span key={tag} className="badge badge-lg">
+                  <span key={tag} className="badge badge-outline badge-lg">
                     {tag}
                   </span>
                 ))}
+                {todo.tags.length === 0 && (
+                  <span className="text-base-content/60">No tags</span>
+                )}
               </div>
             )}
 
