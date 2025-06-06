@@ -92,7 +92,7 @@ const Home = () => {
               />
               <div className="flex items-center gap-2">
                 <select
-                  className="select select-lg select-accent rounded-2xl"
+                  className="select select-lg select-accent flex-1 rounded-2xl"
                   value={sortBy}
                   onChange={(e) =>
                     setSortBy(e.target.value as SortOption['value'])
@@ -110,7 +110,7 @@ const Home = () => {
           </motion.div>
 
           <button
-            className="btn btn-ghost rounded-xl"
+            className="btn btn-ghost btn-xs"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <motion.span animate={{ rotate: isMenuOpen ? 180 : 0 }}>

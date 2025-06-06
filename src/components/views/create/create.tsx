@@ -22,7 +22,7 @@ const Create = () => {
 
   return (
     <PageWrapper>
-      <div className="flex flex-col gap-4">
+      <div className="flex h-full flex-col gap-4">
         <div className="relative flex items-center justify-center pt-4">
           <Link to="/" className="absolute left-0">
             <button className="btn btn-ghost">
@@ -32,7 +32,7 @@ const Create = () => {
           <h1 className="text-center font-bold">Create Todo</h1>
         </div>
 
-        <div className="bg-base-100 flex h-full flex-col gap-4 rounded-2xl p-6">
+        <div className="bg-base-100 flex h-full flex-1 flex-col gap-4 rounded-t-2xl p-6">
           <input
             className="input w-full py-6 text-2xl font-semibold"
             placeholder="Title"

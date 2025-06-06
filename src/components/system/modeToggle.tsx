@@ -11,7 +11,7 @@ export function ModeToggle() {
   return (
     <input
       type="checkbox"
-      className="toggle toggle-primary theme-controller"
+      className="toggle theme-controller"
       checked={theme === 'dark'}
       value={VALUES_MAP[theme as keyof typeof VALUES_MAP]}
       onChange={(e) => {
