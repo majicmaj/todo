@@ -19,7 +19,7 @@ const getDeadlineInfo = (date?: string, time?: string) => {
   if (!date && !time) return null
 
   const baseDate = date ? parseISO(date) : new Date()
-  const [hours = '00', minutes = '00'] = (time || '').split(':')
+  const [hours = '0', minutes = '0'] = time ? time.split(':') : ['0', '0']
 
   const dueDate = set(baseDate, {
     hours: parseInt(hours),

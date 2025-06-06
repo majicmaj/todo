@@ -7,12 +7,70 @@ import { useState } from 'react'
 import { Link } from 'react-router'
 import PageWrapper from '@/components/system/pageWrappers'
 import ModeToggle from '@/components/system/modeToggle'
+import { SortOption, sortOptions } from '@/types/sortOption'
+import { parseISO, set } from 'date-fns'
+
+const getDueFromDateTime = (date?: string, time?: string) => {
+  const baseDate = date ? parseISO(date) : new Date()
+  const [hours = '0', minutes = '0'] = time ? time.split(':') : ['0', '0']
+
+  const dueDate = set(baseDate, {
+    hours: parseInt(hours),
+    minutes: parseInt(minutes),
+    seconds: 0,
+  })
+
+  return dueDate
+}
 
 const Home = () => {
   const [search, setSearch] = useState('')
+  const [sortBy, setSortBy] = useState<SortOption['value']>('none')
 
   const { data: todos } = useGetTodos(search)
   const { data: completedTodos } = useGetCompletedTodos(search)
+
+  const sortTodos = (todosToSort: Todo[]) => {
+    if (!todosToSort) return []
+
+    const sorted = [...todosToSort]
+    switch (sortBy) {
+      case 'priority':
+        return sorted.sort((a, b) => {
+          const priorityOrder = ['low', 'medium', 'high']
+          const aPriorityIndex = priorityOrder.indexOf(a.priority || 'low')
+          const bPriorityIndex = priorityOrder.indexOf(b.priority || 'low')
+          return bPriorityIndex - aPriorityIndex
+        })
+
+      case 'assignee':
+        return sorted.sort((a, b) =>
+          (a?.assignedTo || '').localeCompare(b?.assignedTo || ''),
+        )
+
+      case 'deadline':
+        return sorted.sort((a, b) => {
+          const { dueTime: aTime, dueDate: aDate } = a || {}
+          const { dueTime: bTime, dueDate: bDate } = b || {}
+
+          const aDue = getDueFromDateTime(aDate, aTime)
+          const bDue = getDueFromDateTime(bDate, bTime)
+
+          console.log({
+            aDue,
+            bDue,
+          })
+
+          return bDue.getTime() - aDue.getTime()
+        })
+
+      default:
+        return sorted
+    }
+  }
+
+  const sortedTodos = sortTodos(todos)
+  const sortedCompletedTodos = sortTodos(completedTodos)
 
   return (
     <PageWrapper>
@@ -23,14 +81,27 @@ const Home = () => {
           </button>
         </Link>
 
-        <div className="flex items-center gap-1 p-4">
+        <div className="flex flex-col gap-4 p-4">
           <input
             placeholder="Search Todos"
             className="input input-lg input-accent w-full rounded-2xl"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <ModeToggle />
+          <div className="flex items-center gap-2">
+            <select
+              className="select select-lg select-accent rounded-2xl"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as SortOption['value'])}
+            >
+              {sortOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <ModeToggle />
+          </div>
         </div>
 
         <div className="bg-base-100 h-full min-h-max rounded-t-4xl p-6 pt-2 pb-24">
@@ -43,11 +114,11 @@ const Home = () => {
             </div>
 
             <AnimatePresence>
-              {todos?.map((todo: Todo) => (
+              {sortedTodos?.map((todo: Todo) => (
                 <TodoItem key={todo.id} todo={todo} />
               ))}
 
-              {todos?.length === 0 && (
+              {sortedTodos?.length === 0 && (
                 <motion.div
                   layout
                   key="no-todos"
@@ -64,11 +135,11 @@ const Home = () => {
                 Completed
               </motion.div>
 
-              {completedTodos?.map((todo: Todo) => (
+              {sortedCompletedTodos?.map((todo: Todo) => (
                 <TodoItem key={todo.id} todo={todo} isComplete />
               ))}
 
-              {completedTodos?.length === 0 && (
+              {sortedCompletedTodos?.length === 0 && (
                 <motion.div
                   layout
                   key="no-completed-todos"
