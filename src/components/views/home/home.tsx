@@ -45,6 +45,19 @@ const Home = () => {
                 <TodoItem key={todo.id} todo={todo} />
               ))}
 
+              {todos?.length === 0 && (
+                <motion.div
+                  layout
+                  key="no-todos"
+                  className="text-base-content/60 text-center text-xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                >
+                  All done!
+                </motion.div>
+              )}
+
               <motion.div layout className="divider">
                 Completed
               </motion.div>
@@ -52,6 +65,16 @@ const Home = () => {
               {completedTodos?.map((todo: Todo) => (
                 <TodoItem key={todo.id} todo={todo} isComplete />
               ))}
+
+              {completedTodos?.length === 0 && (
+                <motion.div
+                  layout
+                  key="no-completed-todos"
+                  className="text-base-content/60 text-center text-xl"
+                >
+                  None yet!
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
         </div>
