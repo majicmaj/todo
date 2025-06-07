@@ -249,7 +249,7 @@
   --color-base-content: oklch(20% 0.05 280);
 
   /* primary: pastel lilac bloom */
-  --color-primary: oklch(85% 0.24 280);
+  --color-primary: oklch(85% 0.35 280);
   --color-primary-content: oklch(98% 0.01 280);
 
   /* secondary: rich matcha green */
