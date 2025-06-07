@@ -29,7 +29,7 @@ const Create = () => {
               <X />
             </button>
           </Link>
-          <h1 className="text-center font-bold">Create Todo</h1>
+          <h1 className="text-2xl font-bold">Create Todo</h1>
         </div>
 
         <div className="bg-base-100 flex h-full flex-1 flex-col gap-4 rounded-t-2xl p-6">

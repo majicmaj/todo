@@ -39,7 +39,7 @@ const Edit = () => {
               <X />
             </button>
           </Link>
-          <h1 className="text-center font-bold">Edit Todo</h1>
+          <h1 className="text-2xl font-bold">Edit Todo</h1>
         </div>
 
         <div className="bg-base-100 flex h-full flex-col gap-4 rounded-t-2xl p-6">

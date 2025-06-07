@@ -35,6 +35,7 @@ const SingleTodo = () => {
           <Link to="/" className="btn btn-ghost btn-circle">
             <ArrowLeft />
           </Link>
+          <h1 className="text-2xl font-bold">Task</h1>
           <Deadline date={todo.dueDate} time={todo.dueTime} />
         </div>
 
