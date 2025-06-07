@@ -235,3 +235,62 @@
   --depth: 0.2;
   --noise: 0;
 }
+
+@plugin "daisyui/theme" {
+  name: "ash-sorbet";
+  default: true; /* set as default */
+  prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: light; /* color of browser-provided UI */
+
+  /* base layers (light lilac whispers) */
+  --color-base-100: oklch(98% 0.02 280);
+  --color-base-200: oklch(95% 0.03 280);
+  --color-base-300: oklch(92% 0.04 280);
+  --color-base-content: oklch(20% 0.05 280);
+
+  /* primary: pastel lilac bloom */
+  --color-primary: oklch(85% 0.24 280);
+  --color-primary-content: oklch(98% 0.01 280);
+
+  /* secondary: rich matcha green */
+  --color-secondary: oklch(45% 0.20 120);
+  --color-secondary-content: oklch(98% 0.01 100);
+
+  /* accent: soft peach sorbet */
+  --color-accent: oklch(90% 0.10 28);
+  --color-accent-content: oklch(18% 0.05 30);
+
+  /* neutrals: gentle gray-lilac balance */
+  --color-neutral: oklch(60% 0.01 240);
+  --color-neutral-content: oklch(20% 0.05 240);
+
+  /* info: pastel sky blue */
+  --color-info: oklch(80% 0.10 140);
+  --color-info-content: oklch(20% 0.05 210);
+
+  /* success: minty fresh */
+  --color-success: oklch(85% 0.15 140);
+  --color-success-content: oklch(20% 0.05 140);
+
+  /* warning: sunny buttercup */
+  --color-warning: oklch(90% 0.20 80);
+  --color-warning-content: oklch(20% 0.05 80);
+
+  /* error: vivid blood orange */
+  --color-error: oklch(85% 0.35 28);
+  --color-error-content: oklch(98% 0 28);
+
+  /* playful, rounded corners */
+  --radius-selector: 1.5rem;
+  --radius-field: 1rem;
+  --radius-box: 1.25rem;
+
+  /* sizing */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* borders & depth */
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}

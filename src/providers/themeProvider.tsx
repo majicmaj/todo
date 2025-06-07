@@ -33,6 +33,7 @@ const THEMES = [
   'oxygenos-dark',
   'nothingos',
   'witchtech',
+  'ash-sorbet',
 ]
 
 type Theme = string
