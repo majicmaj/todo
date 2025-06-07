@@ -277,7 +277,7 @@
   --color-warning-content: oklch(20% 0.05 80);
 
   /* error: vivid blood orange */
-  --color-error: oklch(85% 0.3 28);
+  --color-error: oklch(85% 0.32 28);
   --color-error-content: oklch(98% 0 28);
 
   /* playful, rounded corners */
