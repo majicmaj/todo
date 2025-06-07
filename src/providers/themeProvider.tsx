@@ -1,6 +1,37 @@
 import { createContext, useEffect, useState } from 'react'
 
-type Theme = 'dark' | 'light' | 'system'
+// Define the list of available themes
+const THEMES = [
+  'light',
+  'dark',
+  'cupcake',
+  'bumblebee',
+  'emerald',
+  'corporate',
+  'synthwave',
+  'retro',
+  'cyberpunk',
+  'valentine',
+  'halloween',
+  'garden',
+  'forest',
+  'aqua',
+  'lofi',
+  'pastel',
+  'fantasy',
+  'wireframe',
+  'luxury',
+  'dracula',
+  'cmyk',
+  'autumn',
+  'business',
+  'coffee',
+  'winter',
+  'nord',
+  'sunset',
+]
+
+type Theme = string
 
 type ThemeProviderProps = {
   children: React.ReactNode
@@ -11,18 +42,20 @@ type ThemeProviderProps = {
 type ThemeProviderState = {
   theme: Theme
   setTheme: (theme: Theme) => void
+  availableThemes: string[]
 }
 
 const initialState: ThemeProviderState = {
-  theme: 'system',
+  theme: 'light',
   setTheme: () => null,
+  availableThemes: THEMES,
 }
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 
 function ThemeProvider({
   children,
-  defaultTheme = 'system',
+  defaultTheme = 'light',
   storageKey = 'vite-ui-theme',
   ...props
 }: ThemeProviderProps) {
@@ -33,19 +66,11 @@ function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement
 
-    root.classList.remove('light', 'dark')
+    // Remove all theme classes
+    root.removeAttribute('data-theme')
 
-    if (theme === 'system') {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
-        .matches
-        ? 'dark'
-        : 'light'
-
-      root.classList.add(systemTheme)
-      return
-    }
-
-    root.classList.add(theme)
+    // Apply the selected theme
+    root.setAttribute('data-theme', theme)
   }, [theme])
 
   const value = {
@@ -54,6 +79,7 @@ function ThemeProvider({
       localStorage.setItem(storageKey, theme)
       setTheme(theme)
     },
+    availableThemes: THEMES,
   }
 
   return (

@@ -5,6 +5,30 @@
 @plugin "daisyui" {
   themes:
     light --default,
-    dark;
+    dark,
+    cupcake,
+    bumblebee,
+    emerald,
+    corporate,
+    synthwave,
+    retro,
+    cyberpunk,
+    valentine,
+    halloween,
+    garden,
+    forest,
+    aqua,
+    lofi,
+    pastel,
+    fantasy,
+    wireframe,
+    luxury,
+    dracula,
+    cmyk,
+    autumn,
+    business,
+    coffee,
+    winter,
+    nord,
+    sunset;
 }
-

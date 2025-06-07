@@ -2,11 +2,10 @@ import TodoItem from '@/components/todo/todoItem'
 import { useGetCompletedTodos, useGetTodos, useGetTodoTags } from '@/data/todo'
 import Todo from '@/types/todo'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronDown, Plus } from 'lucide-react'
+import { ChevronDown, Plus, Settings } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router'
 import PageWrapper from '@/components/system/pageWrappers'
-import ModeToggle from '@/components/system/modeToggle'
 import { SortOption, sortOptions } from '@/types/sortOption'
 import { sortTodos } from '@/utils/sortTodos'
 import { cn } from '@/lib/utils'
@@ -30,7 +29,7 @@ const Home = () => {
     <PageWrapper>
       <div className="flex h-full flex-col overflow-auto">
         <Link to="/create" className="fixed right-6 bottom-6 z-20">
-          <button className="btn btn-primary btn-xl aspect-square w-max rounded-xl p-1 text-2xl">
+          <button className="btn btn-primary btn-xl aspect-square w-max p-1 text-2xl">
             <Plus />
           </button>
         </Link>
@@ -45,7 +44,7 @@ const Home = () => {
               {/* Search */}
               <input
                 placeholder="Search Todos"
-                className="input input-lg input-accent w-full rounded-2xl"
+                className="input input-lg input-accent w-full"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -53,7 +52,7 @@ const Home = () => {
               {/* Sort */}
               <div className="flex items-center gap-2">
                 <select
-                  className="select select-lg select-accent flex-1 rounded-2xl"
+                  className="select select-lg select-accent flex-1"
                   value={sortBy}
                   onChange={(e) =>
                     setSortBy(e.target.value as SortOption['value'])
@@ -65,7 +64,9 @@ const Home = () => {
                     </option>
                   ))}
                 </select>
-                <ModeToggle />
+                <Link to="/settings" className="btn btn-ghost btn-circle">
+                  <Settings />
+                </Link>
               </div>
 
               {/* Tags */}

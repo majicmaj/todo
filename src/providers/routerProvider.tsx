@@ -2,6 +2,7 @@ import App from '@/App'
 import Create from '@/components/views/create/create'
 import Edit from '@/components/views/edit/edit'
 import Home from '@/components/views/home/home'
+import Settings from '@/components/views/settings/settings'
 import SingleTodo from '@/components/views/todo/singleTodo'
 
 import { createBrowserRouter, RouterProvider as Provider } from 'react-router'
@@ -26,6 +27,10 @@ const routes = [
       {
         path: '/todo/:id',
         element: <SingleTodo />,
+      },
+      {
+        path: '/settings',
+        element: <Settings />,
       },
     ],
   },

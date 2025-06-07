@@ -108,8 +108,13 @@ export const useGetTodoTags = () => {
         }
       })
 
+      const tagsArray = Array.from(tags)
+      const countSortedTags = tagsArray.sort((a, b) => {
+        return (counts.get(b) || 0) - (counts.get(a) || 0)
+      })
+
       return {
-        tags: Array.from(tags),
+        tags: countSortedTags,
         counts: Object.fromEntries(counts),
       }
     },
