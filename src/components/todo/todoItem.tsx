@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { useCompleteTodo, useUncompleteTodo } from '@/data/todo/todos'
+import { useCompleteTodo, useUncompleteTodo } from '@/data/todo'
 import { cn } from '@/lib/utils'
 import Todo from '@/types/todo'
 import { motion } from 'framer-motion'
@@ -31,7 +31,7 @@ const TodoItem = ({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.2 }}
-      className="flex w-full items-start gap-4 rounded-lg"
+      className={'flex w-full items-start gap-4 rounded-lg px-1 pb-1'}
     >
       <motion.input
         layout
@@ -48,7 +48,7 @@ const TodoItem = ({
       <motion.div
         layout
         className={cn(
-          'flex min-w-0 flex-1 flex-col gap-1',
+          'flex min-w-0 flex-1 flex-col gap-0.5',
           isComplete && 'text-base-content/60 line-through',
         )}
       >
@@ -72,11 +72,14 @@ const TodoItem = ({
         </motion.div>
 
         {todo.description && (
-          <motion.p
-            layout
-            className="text-base-content/60 line-clamp-2 text-sm"
-          >
+          <motion.p layout className="line-clamp-1 text-sm opacity-80">
             {todo.description}
+          </motion.p>
+        )}
+
+        {todo.tags && todo.tags.length > 0 && (
+          <motion.p layout className="line-clamp-1 text-sm opacity-60">
+            {todo.tags.join(', ')}
           </motion.p>
         )}
       </motion.div>

@@ -1,5 +1,5 @@
 import { NEW_TODO_FORM_DEFAULT } from '@/constants/newTodoFormDefault'
-import { usePostTodo } from '@/data/todo/todos'
+import { usePostTodo } from '@/data/todo'
 import Todo from '@/types/todo'
 import { Plus, X } from 'lucide-react'
 import { useState } from 'react'

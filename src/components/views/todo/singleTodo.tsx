@@ -1,8 +1,4 @@
-import {
-  useDeleteCompletedTodo,
-  useDeleteTodo,
-  useGetTodo,
-} from '@/data/todo/todos'
+import { useDeleteCompletedTodo, useDeleteTodo, useGetTodo } from '@/data/todo'
 import { format, parseISO } from 'date-fns'
 import { ArrowLeft, Clock, Pen, Trash, User } from 'lucide-react'
 import { Link, useNavigate, useParams } from 'react-router'

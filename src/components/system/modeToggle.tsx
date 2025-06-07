@@ -28,6 +28,7 @@ export function HiddenModeToggle() {
   return (
     <input
       type="checkbox"
+      readOnly
       className="toggle toggle-primary theme-controller hidden"
       checked={theme === 'dark'}
       value={VALUES_MAP[theme as keyof typeof VALUES_MAP]}

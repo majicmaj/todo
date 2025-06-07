@@ -1,5 +1,5 @@
 import { NEW_TODO_FORM_DEFAULT } from '@/constants/newTodoFormDefault'
-import { useGetTodo, useUpdateTodo } from '@/data/todo/todos'
+import { useGetTodo, useUpdateTodo } from '@/data/todo'
 import Todo from '@/types/todo'
 import { Pen, X } from 'lucide-react'
 import { useEffect, useState } from 'react'

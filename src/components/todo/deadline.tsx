@@ -1,52 +1,12 @@
 import { motion } from 'framer-motion'
-import {
-  formatDistanceToNow,
-  isAfter,
-  parseISO,
-  set,
-  differenceInHours,
-} from 'date-fns'
 import { Clock } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { getDeadlineInfo } from '@/lib/utils/date'
 
 interface DeadLineProps {
   date?: string
   time?: string
   isComplete?: boolean
-}
-
-const getDeadlineInfo = (date?: string, time?: string) => {
-  if (!date && !time) return null
-
-  const baseDate = date ? parseISO(date) : new Date()
-  const [hours = '0', minutes = '0'] = time ? time.split(':') : ['0', '0']
-
-  const dueDate = set(baseDate, {
-    hours: parseInt(hours),
-    minutes: parseInt(minutes),
-    seconds: 0,
-  })
-
-  const now = new Date()
-  const isOverdue = !isAfter(dueDate, now)
-  const hoursUntilDue = differenceInHours(dueDate, now)
-
-  let variant: 'error' | 'warning' | 'success' | 'info' = 'info'
-
-  if (isOverdue) {
-    variant = 'error'
-  } else if (hoursUntilDue <= 24) {
-    variant = 'warning'
-  } else if (hoursUntilDue <= 72) {
-    variant = 'success'
-  }
-
-  return {
-    text: isOverdue
-      ? 'Overdue'
-      : formatDistanceToNow(dueDate, { addSuffix: true }),
-    variant,
-  }
 }
 
 const Deadline = ({ date, time, isComplete }: DeadLineProps) => {
@@ -69,7 +29,7 @@ const Deadline = ({ date, time, isComplete }: DeadLineProps) => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.2 }}
       className={cn(
-        'badge badge-lg gap-2',
+        'badge badge-md gap-2 px-1.5',
         variantStyles[deadlineInfo.variant],
       )}
     >
