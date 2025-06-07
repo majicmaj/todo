@@ -60,7 +60,7 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 
 function ThemeProvider({
   children,
-  defaultTheme = 'light',
+  defaultTheme = 'ash-sorbet',
   storageKey = 'vite-ui-theme',
   ...props
 }: ThemeProviderProps) {
