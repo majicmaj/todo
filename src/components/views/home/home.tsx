@@ -126,7 +126,7 @@ const Home = () => {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.2 }}
               >
-                {/* <h1 className="text-4xl font-bold">Todos</h1> */}
+                <h1 className="text-4xl font-bold">Todos</h1>
                 <p className="text-base-content/60 text-sm font-semibold">
                   {todos?.length} Todos
                 </p>
