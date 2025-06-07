@@ -192,9 +192,9 @@
   color-scheme: light;
 
   /* Dark-blue backgrounds (Hextech core backgrounds) */
-  --color-base-100: #0f1323; /* used for pages and panels */
-  --color-base-200: #303030; /* deeper background */
-  --color-base-300: #000; /* accent surface */
+  --color-base-100: oklch(0.20 0.03 270);
+  --color-base-200: oklch(0.26 0.03 270);
+  --color-base-300: oklch(0.09 0.03 270);
   --color-base-content: #ffffff;
 
   /* Hextech Magic Blue for buttons/interactive elements */
@@ -218,10 +218,10 @@
   --color-info-content: #ffffff;
   --color-success: #3f95c6;
   --color-success-content: #ffffff;
-  --color-warning: #a1b0d8;
+  --color-warning: #b38833;
   --color-warning-content: #2c2f3e;
-  --color-error: #b38833;
-  --color-error-content: #2c2f3e;
+  --color-error: #d82d2b;
+  --color-error-content: #ffffff;
 
   /* Corner radii – Hexagonal hints via soft rounding */
   --radius-selector: 0.5rem;
