@@ -29,6 +29,9 @@ const THEMES = [
   'winter',
   'nord',
   'sunset',
+  'oxygenos',
+  'oxygenos-dark',
+  'nothingos',
 ]
 
 type Theme = string

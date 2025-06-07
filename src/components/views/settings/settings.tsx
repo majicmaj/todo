@@ -100,18 +100,18 @@ const Settings = () => {
               )}
 
               {/* Theme grid */}
-              <div className="flex flex-wrap items-start justify-center gap-4">
+              <div className="flex flex-wrap items-start justify-center gap-2">
                 {displayOrder.map((themeName) => (
                   <button
                     key={themeName}
                     className={cn(
-                      `btn flex aspect-square size-40 flex-col justify-start gap-4 p-3 transition-all`,
+                      `btn xs:size-40 flex aspect-square size-32 flex-col justify-start gap-4 p-3 transition-all`,
                       theme === themeName && 'btn-primary',
                     )}
                     onClick={() => setTheme(themeName)}
                   >
                     <p className="flex w-full items-center justify-between gap-2 text-center">
-                      <span className="flex-1 text-left capitalize">
+                      <span className="flex-1 truncate text-left whitespace-nowrap capitalize">
                         {themeName}
                       </span>
 
