@@ -183,3 +183,55 @@
   --depth: 0.75;
   --noise: 0;
 }
+
+
+@plugin "daisyui/theme" {
+  name: "witchtech";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  /* Dark-blue backgrounds (Hextech core backgrounds) */
+  --color-base-100: #0f1323; /* used for pages and panels */
+  --color-base-200: #303030; /* deeper background */
+  --color-base-300: #000; /* accent surface */
+  --color-base-content: #ffffff;
+
+  /* Hextech Magic Blue for buttons/interactive elements */
+  --color-primary: #3f95c6;
+  --color-primary-content: #ffffff;
+
+  /* Gold accents/outlines */
+  --color-secondary: #b38833;
+  --color-secondary-content: #2c2f3e;
+
+  /* Neutral – slightly lighter blue */
+  --color-accent: #b38833;
+  --color-accent-content: #2c2f3e;
+
+  /* Neutral surfaces/cards */
+  --color-neutral: #6d7a93;
+  --color-neutral-content: #ffffff;
+
+  /* Status colors – aligning with Hextech theme */
+  --color-info: #3f9fc6;
+  --color-info-content: #ffffff;
+  --color-success: #3f95c6;
+  --color-success-content: #ffffff;
+  --color-warning: #a1b0d8;
+  --color-warning-content: #2c2f3e;
+  --color-error: #b38833;
+  --color-error-content: #2c2f3e;
+
+  /* Corner radii – Hexagonal hints via soft rounding */
+  --radius-selector: 0.5rem;
+  --radius-field: 0.375rem;
+  --radius-box: 0.5rem;
+
+  /* Minimal effects */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0.2;
+  --noise: 0;
+}
