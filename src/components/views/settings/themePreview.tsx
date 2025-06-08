@@ -3,14 +3,15 @@ export const ThemePreview = ({ themeName }: { themeName: string }) => {
   return (
     <div
       data-theme={themeName}
-      className="bg-base-300 flex aspect-square w-full flex-col gap-0.5 overflow-hidden rounded-md shadow-md"
+      className="bg-base-300 flex h-full w-full flex-col gap-0.5 overflow-hidden"
     >
-      <div className="h-[16%] p-[4%]">
+      <div className="h-[20%] p-[8%] pb-[2%]">
         <div
           className="bg-base-100 border-accent h-full w-full truncate border px-1 text-start text-sm font-normal"
           style={{ borderRadius: 'calc(var(--radius-field) / 5)' }}
         />
       </div>
+
       <div className="bg-base-100 relative flex h-full flex-col gap-[10%] rounded-t-lg p-[4%]">
         <div className="flex h-[15%] flex-col justify-between p-[2%]">
           <div className="flex items-center gap-[2%]">

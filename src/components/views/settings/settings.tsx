@@ -65,13 +65,13 @@ const Settings = () => {
               )}
 
               {/* Theme grid */}
-              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+              <div className="mx-auto grid max-w-7xl grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
                 {displayOrder.map((themeName) => (
                   <button
                     key={themeName}
                     onClick={() => setTheme(themeName)}
                     className={cn(
-                      'btn relative flex h-[unset] flex-col p-2',
+                      'btn relative flex aspect-square h-[unset] flex-col overflow-hidden p-0 pb-2',
                       theme === themeName
                         ? 'btn-primary shadow-lg'
                         : 'btn btn-soft',
@@ -82,9 +82,9 @@ const Settings = () => {
                         <CircleCheck className="btn btn-link p-0" />
                       </div>
                     )}
-                    <p>{themeName}</p>
 
                     <ThemePreview themeName={themeName} />
+                    <p>{themeName}</p>
                   </button>
                 ))}
               </div>
