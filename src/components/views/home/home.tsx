@@ -9,7 +9,6 @@ import PageWrapper from '@/components/system/pageWrappers'
 import { SortOption, sortOptions } from '@/types/sortOption'
 import { sortTodos } from '@/utils/sortTodos'
 import { cn } from '@/lib/utils'
-import { ThemePreview } from '../settings/themePreview'
 
 const Home = () => {
   const [search, setSearch] = useState('')
