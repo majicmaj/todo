@@ -1,6 +1,6 @@
 import { useTheme } from '@/hooks/useTheme'
 import PageWrapper from '@/components/system/pageWrappers'
-import { ChevronLeft, Check, Search } from 'lucide-react'
+import { ChevronLeft, Check, Search, CircleCheck } from 'lucide-react'
 import { Link } from 'react-router'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
@@ -65,20 +65,22 @@ const Settings = () => {
               )}
 
               {/* Theme grid */}
-              <div className="flex flex-wrap items-start justify-center gap-5">
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
                 {displayOrder.map((themeName) => (
                   <button
                     key={themeName}
                     onClick={() => setTheme(themeName)}
                     className={cn(
-                      'btn relative flex h-[unset] flex-col p-4 pt-2',
+                      'btn relative flex h-[unset] flex-col p-2',
                       theme === themeName
-                        ? 'btn-primary btn-active border-primary shadow-lg'
-                        : 'btn btn-outline',
+                        ? 'btn-primary shadow-lg'
+                        : 'btn btn-soft',
                     )}
                   >
                     {theme === themeName && (
-                      <Check className="text-primary-content bg-primary absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded border" />
+                      <div className="absolute z-20 grid h-full w-full place-items-center">
+                        <CircleCheck className="btn btn-link p-0" />
+                      </div>
                     )}
                     <p>{themeName}</p>
 
