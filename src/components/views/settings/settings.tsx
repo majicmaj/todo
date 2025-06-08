@@ -4,42 +4,7 @@ import { ChevronLeft, Check, Search } from 'lucide-react'
 import { Link } from 'react-router'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
-
-// Component to show a small preview of the theme
-const ThemePreview = ({ themeName }: { themeName: string }) => {
-  return (
-    <div
-      data-theme={themeName}
-      className="border-base-300 flex h-20 w-20 flex-col overflow-hidden rounded-lg border shadow-sm"
-    >
-      {/* Header area with primary color */}
-      <div className="bg-primary flex h-2/5 items-center justify-between px-1.5">
-        <div className="bg-primary-content h-2 w-2 rounded-full opacity-80"></div>
-        <div className="bg-primary-content h-1 w-4 rounded-full opacity-60"></div>
-      </div>
-
-      {/* Content area with mini elements */}
-      <div className="bg-base-100 flex h-3/5 flex-col justify-between p-1.5">
-        {/* Mini button row */}
-        <div className="flex items-center gap-1">
-          <div className="bg-secondary h-2 w-3 flex-shrink-0 rounded-sm"></div>
-          <div className="bg-accent h-2 w-3 flex-shrink-0 rounded-sm"></div>
-        </div>
-
-        {/* Mini content lines */}
-        <div className="space-y-1">
-          <div className="bg-base-200 h-1 w-full rounded-full"></div>
-          <div className="bg-base-300 h-1 w-3/4 rounded-full"></div>
-        </div>
-
-        {/* Mini footer with info color */}
-        <div className="flex w-full justify-end">
-          <div className="bg-info h-1.5 w-3 rounded-sm"></div>
-        </div>
-      </div>
-    </div>
-  )
-}
+import { ThemePreview } from './themePreview'
 
 const Settings = () => {
   const { theme, setTheme, availableThemes } = useTheme()
@@ -100,25 +65,21 @@ const Settings = () => {
               )}
 
               {/* Theme grid */}
-              <div className="flex flex-wrap items-start justify-center gap-2">
+              <div className="flex flex-wrap items-start justify-center gap-5">
                 {displayOrder.map((themeName) => (
                   <button
                     key={themeName}
-                    className={cn(
-                      `btn xs:size-40 flex aspect-square size-32 flex-col justify-start gap-4 p-3 transition-all`,
-                      theme === themeName && 'btn-primary',
-                    )}
                     onClick={() => setTheme(themeName)}
+                    className={cn(
+                      'btn border-neutral relative h-[unset] border p-4',
+                      theme === themeName
+                        ? 'btn-primary border-primary shadow-lg'
+                        : 'btn-ghost border-base-300 hover:border-base-400',
+                    )}
                   >
-                    <p className="flex w-full items-center justify-between gap-2 text-center">
-                      <span className="flex-1 truncate text-left whitespace-nowrap capitalize">
-                        {themeName}
-                      </span>
-
-                      {theme === themeName && (
-                        <Check className="right-0 h-5 w-5" />
-                      )}
-                    </p>
+                    {theme === themeName && (
+                      <Check className="text-primary-content bg-primary absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded border" />
+                    )}
 
                     <ThemePreview themeName={themeName} />
                   </button>

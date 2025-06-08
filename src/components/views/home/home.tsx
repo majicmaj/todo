@@ -9,6 +9,7 @@ import PageWrapper from '@/components/system/pageWrappers'
 import { SortOption, sortOptions } from '@/types/sortOption'
 import { sortTodos } from '@/utils/sortTodos'
 import { cn } from '@/lib/utils'
+import { ThemePreview } from '../settings/themePreview'
 
 const Home = () => {
   const [search, setSearch] = useState('')
@@ -148,9 +149,7 @@ const Home = () => {
                 </motion.div>
               )}
 
-              <motion.div layout className="divider">
-                Completed
-              </motion.div>
+              <div className="divider">Completed</div>
 
               {sortedCompletedTodos?.map((todo: Todo) => (
                 <TodoItem key={todo.id} todo={todo} isComplete />
