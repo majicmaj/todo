@@ -1,6 +1,6 @@
 import { useTheme } from '@/hooks/useTheme'
 import PageWrapper from '@/components/system/pageWrappers'
-import { ChevronLeft, Check, Search, CircleCheck } from 'lucide-react'
+import { ChevronLeft, Search, CircleCheck } from 'lucide-react'
 import { Link } from 'react-router'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
