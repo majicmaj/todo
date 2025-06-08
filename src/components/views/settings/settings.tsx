@@ -71,10 +71,10 @@ const Settings = () => {
                     key={themeName}
                     onClick={() => setTheme(themeName)}
                     className={cn(
-                      'btn border-neutral relative flex h-[unset] flex-col border p-4 pt-2',
+                      'btn relative flex h-[unset] flex-col p-4 pt-2',
                       theme === themeName
-                        ? 'btn-primary border-primary shadow-lg'
-                        : 'btn-ghost border-base-300 hover:border-base-400',
+                        ? 'btn-primary btn-active border-primary shadow-lg'
+                        : 'btn btn-outline',
                     )}
                   >
                     {theme === themeName && (
