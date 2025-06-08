@@ -71,7 +71,7 @@ const Settings = () => {
                     key={themeName}
                     onClick={() => setTheme(themeName)}
                     className={cn(
-                      'btn border-neutral relative h-[unset] border p-4',
+                      'btn border-neutral relative flex h-[unset] flex-col border p-4 pt-2',
                       theme === themeName
                         ? 'btn-primary border-primary shadow-lg'
                         : 'btn-ghost border-base-300 hover:border-base-400',
@@ -80,6 +80,7 @@ const Settings = () => {
                     {theme === themeName && (
                       <Check className="text-primary-content bg-primary absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded border" />
                     )}
+                    <p>{themeName}</p>
 
                     <ThemePreview themeName={themeName} />
                   </button>
