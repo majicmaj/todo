@@ -194,46 +194,46 @@
   color-scheme: light;
 
   /* Dark-blue backgrounds (Hextech core backgrounds) */
-  --color-base-100: oklch(0.20 0.03 270);
-  --color-base-200: oklch(0.26 0.03 270);
-  --color-base-300: oklch(0.09 0.03 270);
+  --color-base-100: oklch(0.2542 0.0111 254.04);
+  --color-base-200: oklch(0.1541 0.026 260.23);
+  --color-base-300: oklch(0.1391 0.0244 241.35);
   --color-base-content: #ffffff;
 
   /* Hextech Magic Blue for buttons/interactive elements */
-  --color-primary: #3f95c6;
-  --color-primary-content: #ffffff;
+  --color-primary: oklch(0.3542 0.0111 254.04);
+  --color-primary-content: oklch(0.7118 0.1071 85.79);
 
   /* Gold accents/outlines */
-  --color-secondary: #b38833;
+  --color-secondary: oklch(0.8034 0.0564 94.82);
   --color-secondary-content: #2c2f3e;
 
   /* Neutral – slightly lighter blue */
-  --color-accent: #b38833;
-  --color-accent-content: #2c2f3e;
+  --color-accent: oklch(0.7118 0.1071 85.79);
+  --color-accent-content:oklch(0.9264 0.0255 86.87);
 
   /* Neutral surfaces/cards */
   --color-neutral: #6d7a93;
   --color-neutral-content: #ffffff;
 
   /* Status colors – aligning with Hextech theme */
-  --color-info: #3f9fc6;
+  --color-info: oklch(0.6239 0.0832 215.48);
   --color-info-content: #ffffff;
-  --color-success: #3f95c6;
+  --color-success: oklch(0.7825 0.2203 136.6);
   --color-success-content: #ffffff;
-  --color-warning: #b38833;
+  --color-warning: oklch(0.7386 0.1334 62.93);
   --color-warning-content: #2c2f3e;
-  --color-error: #d82d2b;
+  --color-error: oklch(0.5054 0.1617 20.07);
   --color-error-content: #ffffff;
 
   /* Corner radii – Hexagonal hints via soft rounding */
-  --radius-selector: 0.5rem;
-  --radius-field: 0.375rem;
+  --radius-selector: 1px;
+  --radius-field: 1px;
   --radius-box: 0.5rem;
 
   /* Minimal effects */
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
-  --border: 1px;
+  --border: 2px;
   --depth: 0.2;
   --noise: 0;
 }
@@ -296,9 +296,6 @@
   --depth: 1;
   --noise: 0;
 }
-
-
-
 
   :root { 
     @apply bg-base-300 text-base-content;

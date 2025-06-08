@@ -14,7 +14,7 @@ const TagsSelect = ({ selectedTags, setSelectedTags }: TagsSelectProps) => {
       <button
         className={cn(
           `badge badge-lg whitespace-nowrap`,
-          selectedTags.length === 0 ? 'badge-primary' : 'badge-ghost',
+          selectedTags.length === 0 ? 'badge-accent' : 'badge-ghost',
         )}
         onClick={() => setSelectedTags([])}
       >
@@ -25,7 +25,7 @@ const TagsSelect = ({ selectedTags, setSelectedTags }: TagsSelectProps) => {
           key={tag}
           className={cn(
             `badge badge-lg whitespace-nowrap`,
-            selectedTags.includes(tag) ? 'badge-primary' : 'badge-ghost',
+            selectedTags.includes(tag) ? 'badge-accent' : 'badge-ghost',
           )}
           onClick={() => {
             setSelectedTags((prev) =>

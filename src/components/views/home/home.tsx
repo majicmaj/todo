@@ -69,7 +69,7 @@ const Home = () => {
           <div className="flex flex-col gap-4">
             <AnimatePresence>
               <motion.div
-                className="bg-base-100 border-base-300 z-10 items-start justify-between"
+                className="z-10 items-start justify-between"
                 layout
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
