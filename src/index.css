@@ -2,6 +2,8 @@
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
 
+/* Apply base background color to body */
+
 @plugin "daisyui" {
   themes:
     light,
@@ -294,3 +296,10 @@
   --depth: 1;
   --noise: 0;
 }
+
+
+
+
+  :root { 
+    @apply bg-base-300 text-base-content;
+  }
