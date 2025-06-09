@@ -1,6 +1,6 @@
 import { useTheme } from '@/hooks/useTheme'
 import PageWrapper from '@/components/system/pageWrappers'
-import { ChevronLeft, Search, CircleCheck } from 'lucide-react'
+import { ChevronLeft, Search } from 'lucide-react'
 import { Link } from 'react-router'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
@@ -77,14 +77,22 @@ const Settings = () => {
                         : 'btn btn-soft',
                     )}
                   >
-                    {theme === themeName && (
-                      <div className="absolute z-20 grid h-full w-full place-items-center">
-                        <CircleCheck className="btn btn-link p-0" />
-                      </div>
-                    )}
-
                     <ThemePreview themeName={themeName} />
-                    <p>{themeName}</p>
+                    <div className="flex w-full items-center justify-start ps-2">
+                      <input
+                        type="radio"
+                        name="theme"
+                        className={cn(
+                          'radio mr-2',
+                          theme === themeName
+                            ? 'radio-primary radio-outline'
+                            : 'radio-ghost',
+                        )}
+                        checked={theme === themeName}
+                        onChange={() => setTheme(themeName)}
+                      />
+                      <p>{themeName}</p>
+                    </div>
                   </button>
                 ))}
               </div>
